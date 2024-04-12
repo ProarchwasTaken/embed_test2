@@ -11,7 +11,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable("program" 
   src/main.cpp
   src/python_script.cpp
+  src/dummy.cpp
   include/python_script.h
+  include/dummy.h
 )
 target_link_libraries("program" PRIVATE pybind11::embed)
 

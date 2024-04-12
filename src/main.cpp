@@ -3,8 +3,16 @@
 #include <pybind11/eval.h>
 #include <pybind11/pybind11.h>
 #include "python_script.h"
+#include "dummy.h"
 
 namespace py = pybind11;
+
+
+PYBIND11_EMBEDDED_MODULE(dummy, m) {
+  py::class_<Dummy>(m, "Dummy")
+    .def(py::init())
+    .def_property("name", &Dummy::getName, &Dummy::setName);
+}
 
 
 int main() {
