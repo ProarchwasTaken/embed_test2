@@ -11,7 +11,10 @@ namespace py = pybind11;
 PYBIND11_EMBEDDED_MODULE(dummy, m) {
   py::class_<Dummy>(m, "Dummy")
     .def(py::init())
-    .def_property("name", &Dummy::getName, &Dummy::setName);
+    .def_property("name", &Dummy::getName, &Dummy::setName)
+    .def_property("occupation", &Dummy::getOccupation, 
+                  &Dummy::setOccupation)
+    .def_property("age", &Dummy::getAge, &Dummy::setAge);
 }
 
 

@@ -19,3 +19,19 @@ void Dummy::setName(string name) {
   this->name = name;
 }
 
+string Dummy::getOccupation() {
+  return occupation;
+}
+
+void Dummy::setOccupation(string occupation) {
+  this->occupation = occupation;
+}
+
+int Dummy::getAge() {
+  return age;
+}
+
+void Dummy::setAge(int value) {
+  age = value;
+}
+
