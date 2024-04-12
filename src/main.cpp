@@ -1,4 +1,5 @@
 // main.cpp
+#include <iostream>
 #include <pybind11/embed.h>
 #include <pybind11/eval.h>
 #include <pybind11/pybind11.h>
@@ -22,7 +23,11 @@ int main() {
   py::scoped_interpreter guard{};
 
   PythonScript script("test.py");
-  py::exec(script);
+  py::exec(script); 
+  
+  py::object obj = py::eval("Person()");
+  Dummy *person = obj.cast<Dummy *>();
 
+  std::cout << person->getName() << "\n";
   return 0;
 }
