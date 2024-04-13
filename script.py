@@ -59,6 +59,7 @@ class Person(Dummy):
         self.blurb()
 
     def blurb(self) -> None:
-        """A pure python method written for the purpose of testing."""
+        """A method written to show that pure python methods and variables
+        do work."""
         print(f"Knows {self.known_languages} programming languages.")
 
