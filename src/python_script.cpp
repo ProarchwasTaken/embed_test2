@@ -16,7 +16,7 @@ void PythonScript::loadScript(string file_name) {
   ifstream file(file_name);
   string current_line;
 
-  cout << "Appending each line of the script to instance.\n";
+  cout << "Appending and formatting each line...\n";
   while (getline(file, current_line)) {
     this->append(current_line + "\n");
   }
