@@ -1,5 +1,4 @@
 // main.cpp
-#include <iostream>
 #include <pybind11/embed.h>
 #include <pybind11/eval.h>
 #include <pybind11/pybind11.h>
@@ -10,8 +9,9 @@ namespace py = pybind11;
 
 
 PYBIND11_EMBEDDED_MODULE(dummy, m) {
-  py::class_<Dummy>(m, "Dummy")
-    .def(py::init())
+  py::class_<Dummy, PyDummy>(m, "Dummy")
+    .def(py::init<>())
+    .def("doSomething", &Dummy::doSomething)
     .def_property("name", &Dummy::getName, &Dummy::setName)
     .def_property("occupation", &Dummy::getOccupation, 
                   &Dummy::setOccupation)
@@ -26,8 +26,9 @@ int main() {
   py::exec(script); 
   
   py::object obj = py::eval("Person()");
-  Dummy *person = obj.cast<Dummy *>();
 
-  std::cout << person->getName() << "\n";
+  Dummy *person = obj.cast<Dummy *>();
+  person->doSomething();
+
   return 0;
 }

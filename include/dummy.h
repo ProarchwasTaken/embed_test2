@@ -19,4 +19,14 @@ public:
 
   int getAge();
   void setAge(int value);
+
+  virtual void doSomething();
+};
+
+
+class PyDummy : public Dummy {
+public:
+  using Dummy::Dummy;
+
+  void doSomething() override;
 };

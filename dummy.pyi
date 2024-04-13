@@ -26,3 +26,6 @@ class Dummy:
     def age(self, value: int):
         ...
 
+    def doSomething(self) -> None:
+        ...
+

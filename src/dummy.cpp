@@ -1,8 +1,10 @@
 // dummy.cpp
+#include <pybind11/pybind11.h>
 #include <string>
+#include <iostream>
 #include "dummy.h"
 
-using std::string;
+using std::string, std::cout;
 
 
 Dummy::Dummy() {
@@ -33,5 +35,17 @@ int Dummy::getAge() {
 
 void Dummy::setAge(int value) {
   age = value;
+}
+
+void Dummy::doSomething() {
+  cout << "========================\n";
+  cout << "Name: " << name << "\n";
+  cout << "Age: " << age << "\n";
+  cout << "Occupation: " << occupation << "\n";
+  cout << "========================\n";
+}
+
+void PyDummy::doSomething() {
+  PYBIND11_OVERRIDE(void, Dummy, doSomething);
 }
 
