@@ -15,5 +15,10 @@ add_executable("program"
   include/python_script.h
   include/dummy.h
 )
-target_link_libraries("program" PRIVATE pybind11::embed)
+target_link_libraries("program" PRIVATE 
+-static
+-static-libgcc 
+-static-libstdc++
+pybind11::embed
+)
 
